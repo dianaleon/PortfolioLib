@@ -8,6 +8,8 @@ public interface ITheme {
 	
 	public String getUrlImages();
 	
+	public String getHomeImage();
+	
 	public BackgroundObject getBackground();
 	
 	public BackgroundObject getTitleBarBackground();

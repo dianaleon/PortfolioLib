@@ -16,6 +16,9 @@ public interface IPageObject {
 	public int getPos();
 	public String getDescription();
 	public String getBackground();
+	public String getStartColorBackground();
+	public String getEndColorBackground();
+	public String getGradientOrientatio();
 	public String getTextColor();
 	public String getTitle();
 	public String getSubtitle();

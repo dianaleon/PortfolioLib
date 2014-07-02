@@ -34,6 +34,9 @@ public class ContactPage extends Page implements IContactPage {
 				if (tipo.equalsIgnoreCase(IContactPage.telefono)) {
 					contactObject.setSubtype(IContactPage.telefono);
 				}
+				if (tipo.equalsIgnoreCase(IContactPage.web)) {
+					contactObject.setSubtype(IContactPage.web);
+				}
 				this.objects.add(contactObject);
 			}
 		} catch (JSONException e) {

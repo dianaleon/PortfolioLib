@@ -16,12 +16,14 @@ public class Theme implements ITheme {
 	private BackgroundObject menuBackground;
 	private BackgroundObject menuItemBackground;
 	private BackgroundObject homeBackground;
+	private String homeImage;
 	private String colors;
 	
 	public Theme(JSONObject jsonObject) {
 		try {
 			this.code = jsonObject.getString("code");
 			this.urlImages= jsonObject.getString("url_images");
+			this.homeImage = jsonObject.getString("home_img");
 			this.background = new BackgroundObject(jsonObject.getString("background"));
 			this.titleBarBackground = new BackgroundObject(jsonObject.getString("titlebar_background"));
 			this.menuBackground = new BackgroundObject(jsonObject.getString("menu_background"));
@@ -70,6 +72,11 @@ public class Theme implements ITheme {
 
 	public String getColors() {
 		return colors;
+	}
+
+	@Override
+	public String getHomeImage() {
+		return homeImage;
 	}
 
 }

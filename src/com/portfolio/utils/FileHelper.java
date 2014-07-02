@@ -11,12 +11,12 @@ public class FileHelper {
 
 	public static File createNewImageFile(Context context, String filename) {
 		File folder = null;
-		if (android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED)) {
-			String path = Environment.getExternalStorageDirectory().getPath() + Config.IMAGES_EXTERNAL_PATH;
-			folder = new File(path);//"/mnt/sdcard/Portfolio/Images");//context.getFilesDir();//ExternalFilesDir("Images");
-		} else {
+//		if (android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED)) {
+//			String path = Environment.getExternalStorageDirectory().getPath() + Config.IMAGES_EXTERNAL_PATH;
+//			folder = new File(path);//"/mnt/sdcard/Portfolio/Images");//context.getFilesDir();//ExternalFilesDir("Images");
+//		} else {
 			folder = new File(context.getFilesDir() + Config.IMAGES_INTERNAL_PATH);
-		}
+//		}
 		folder.mkdirs();
 
 		// create a new file, specifying the path, and the filename
@@ -35,12 +35,12 @@ public class FileHelper {
 	
 	public static File createNewJSONFile(Context context, String filename) {
 		File folder = null;
-		if (android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED)) {
-			String path = Environment.getExternalStorageDirectory().getPath() + Config.JSON_EXTERNAL_PATH;
-			folder = new File(path);//"/mnt/sdcard/Portfolio/Images");//context.getFilesDir();//ExternalFilesDir("Images");
-		} else {
+//		if (android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED)) {
+//			String path = Environment.getExternalStorageDirectory().getPath() + Config.JSON_EXTERNAL_PATH;
+//			folder = new File(path);//"/mnt/sdcard/Portfolio/Images");//context.getFilesDir();//ExternalFilesDir("Images");
+//		} else {
 			folder = new File(context.getFilesDir() + Config.JSON_INTERNAL_PATH);
-		}
+//		}
 		folder.mkdirs();
 
 		// create a new file, specifying the path, and the filename

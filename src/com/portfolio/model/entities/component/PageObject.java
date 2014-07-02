@@ -95,4 +95,37 @@ public class PageObject implements IPageObject {
 	public String getSubtitle() {
 		return subtitle;
 	}
+
+	@Override
+	public String getStartColorBackground() {
+		try {
+			String[] split = this.background.split(";");
+			return split[0];
+		} catch (Exception e) {
+			
+		}
+		return null;
+	}
+
+	@Override
+	public String getEndColorBackground() {
+		try {
+			String[] split = this.background.split(";");
+			return split[1];
+		} catch (Exception e) {
+			
+		}
+		return null;
+	}
+
+	@Override
+	public String getGradientOrientatio() {
+		try {
+			String[] split = this.background.split(";");
+			return split[2];
+		} catch (Exception e) {
+			
+		}
+		return null;
+	}
 }
