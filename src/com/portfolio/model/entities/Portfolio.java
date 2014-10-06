@@ -17,68 +17,78 @@ public class Portfolio {
 	private IClient client;
 	private ITheme theme;
 	private IMenu menu;
-	
+
 	public Portfolio(final JSONObject JSONPortfolio) {
-        try {
-        	client = new Client(JSONPortfolio.getJSONObject("client"));
-        	theme = new Theme(JSONPortfolio.getJSONObject("theme"));
-        	JSONObject jsonMenu = JSONPortfolio.getJSONObject("menu");
-        	menu = new Menu(jsonMenu);
-        	this.pages = new HashMap<Integer, IPage>();
-            JSONArray pages = jsonMenu.getJSONArray("pages");
-            for (int index = 0; index < pages.length(); index++) {
-            	JSONObject page = pages.getJSONObject(index);
-            	String layout = page.getString("layout");
-            	Type type = new Type(page.getJSONObject("type"));
-            	IPage pageObject = null;
-            	if (layout.equalsIgnoreCase("image")) {
-            		pageObject = new ImagePage(type, page, layout);
-            	}
-            	if (layout.equalsIgnoreCase("redesSociales")) {
-            		pageObject = new NetworkPage(type, page, layout);
-            	}
-            	if (layout.equalsIgnoreCase("contacto")) {
-            		pageObject = new ContactPage(type, page, layout);
-            	}
-            	if (layout.equalsIgnoreCase("photo_grid")) {
-            		pageObject = new PhotoGridPage(type, page, layout);
-            	}
-            	
-            	
-            	if (layout.equalsIgnoreCase("photo_text_gridlist")) {
-            		pageObject = new PhotoTxtGridListPage(type, page, layout);
-            	}
-            	if (layout.equalsIgnoreCase("curriculum")) {
-            		pageObject = new CurriculumPage(type, page, layout);
-            	}
-            	if (layout.equalsIgnoreCase("text_subtopic")) {
-            		pageObject = new TxtSubtopicPage(type, page, layout);
-            	}
-            	if (layout.equalsIgnoreCase("photo_gallery")) {
-            		pageObject = new PhotoGalleryPage(type, page, layout);
-            	}
-            	if (layout.equalsIgnoreCase("video")) {
-            		pageObject = new VideoPage(type, page, layout);
-            	}
-            	if (layout.equalsIgnoreCase("photo_text")) {
-            		pageObject = new PhotoTextPage(type, page, layout);
-            	}
-            	if (layout.equalsIgnoreCase("text_photo_text")) {
-            		pageObject = new TxtPhotoTxtPage(type, page, layout);
-            	}
-            	if (layout.equalsIgnoreCase("catalogo")) {
-            		pageObject = new CatalogoPage(type, page, layout);
-            	}
-if (pageObject != null) {
-//	            	String namePage = page.getString("name");
-//	            	((Page) pageObject).setName(namePage);
-	        		this.pages.put(pageObject.getPosition(), pageObject);
-            	}
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+		try {
+			client = new Client(JSONPortfolio.getJSONObject("client"));
+			theme = new Theme(JSONPortfolio.getJSONObject("theme"));
+			JSONObject jsonMenu = JSONPortfolio.getJSONObject("menu");
+			menu = new Menu(jsonMenu);
+			this.pages = new HashMap<Integer, IPage>();
+			JSONArray pages = jsonMenu.getJSONArray("pages");
+			for (int index = 0; index < pages.length(); index++) {
+				JSONObject page = pages.getJSONObject(index);
+				String layout = page.getString("layout");
+				Type type = new Type(page.getJSONObject("type"));
+				IPage pageObject = null;
+				if (layout.equalsIgnoreCase("image")) {
+					pageObject = new ImagePage(type, page, layout);
+				}
+				if (layout.equalsIgnoreCase("redesSociales")) {
+					pageObject = new NetworkPage(type, page, layout);
+				}
+				if (layout.equalsIgnoreCase("contacto")) {
+					pageObject = new ContactPage(type, page, layout);
+				}
+				if (layout.equalsIgnoreCase("photo_grid")) {
+					pageObject = new PhotoGridPage(type, page, layout);
+				}
+
+				if (layout.equalsIgnoreCase("photo_text_gridlist")) {
+					pageObject = new PhotoTxtGridListPage(type, page, layout);
+				}
+				if (layout.equalsIgnoreCase("curriculum")) {
+					pageObject = new CurriculumPage(type, page, layout);
+				}
+				if (layout.equalsIgnoreCase("text_subtopic")) {
+					pageObject = new TxtSubtopicPage(type, page, layout);
+				}
+				if (layout.equalsIgnoreCase("photo_gallery")) {
+					pageObject = new PhotoGalleryPage(type, page, layout);
+				}
+				if (layout.equalsIgnoreCase("video")) {
+					pageObject = new VideoPage(type, page, layout);
+				}
+				if (layout.equalsIgnoreCase("photo_text")) {
+					pageObject = new PhotoTextPage(type, page, layout);
+				}
+				if (layout.equalsIgnoreCase("text_photo_text")) {
+					pageObject = new TxtPhotoTxtPage(type, page, layout);
+				}
+				if (layout.equalsIgnoreCase("catalogo")) {
+					pageObject = new CatalogoPage(type, page, layout);
+				}
+
+				if (layout.equalsIgnoreCase("text_text_gridlist")) {
+					pageObject = new PhotoTxtGridListPage(type, page, layout);
+				}
+				if (layout.equalsIgnoreCase("accordion_image_list")) {
+					pageObject = new NetworkPage(type, page, layout);
+				}
+				if (layout.equalsIgnoreCase("accordion_text_list")) {
+					pageObject = new NetworkPage(type, page, layout);
+				}
+
+				if (pageObject != null) {
+					// String namePage = page.getString("name");
+					// ((Page) pageObject).setName(namePage);
+					this.pages.put(pageObject.getPosition(), pageObject);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	public IClient getClient() {
 		return client;
@@ -104,7 +114,7 @@ if (pageObject != null) {
 		return pages.values();
 	}
 
-//	public void setPages(List<IPage> pages) {
-//		this.pages = pages;
-//	}
+	// public void setPages(List<IPage> pages) {
+	// this.pages = pages;
+	// }
 }

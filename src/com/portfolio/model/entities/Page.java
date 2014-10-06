@@ -6,6 +6,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.portfolio.model.entities.component.BackgroundObject;
 import com.portfolio.model.interfaces.IPage;
 import com.portfolio.model.interfaces.component.IPageObject;
 
@@ -17,16 +18,19 @@ public abstract class Page implements IPage {
 	protected String title;
 	protected String content;
 	protected String layout;
-	
+	protected BackgroundObject background_menu;
+
 	protected List<IPageObject> objects;
 
 	public Page(JSONObject jsonObject) {
 		try {
-			this.objects= new ArrayList<IPageObject>();
+			this.objects = new ArrayList<IPageObject>();
 			this.pos = Integer.valueOf(jsonObject.getString("pos"));
 			this.title = jsonObject.getString("title");
 			this.content = jsonObject.getString("content");
 			this.iconURL = jsonObject.getString("url_icon");
+			this.background_menu = new BackgroundObject(
+					jsonObject.getString("menu_item_background"));
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -35,7 +39,7 @@ public abstract class Page implements IPage {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
 	public Type getType() {
 		return type;
@@ -50,24 +54,29 @@ public abstract class Page implements IPage {
 	public String getIconUrl() {
 		return iconURL;
 	}
-	
+
 	@Override
 	public String getTitle() {
 		return title;
 	}
-	
+
 	@Override
 	public String getContent() {
 		return content;
 	}
-	
+
 	@Override
 	public List<IPageObject> getObjects() {
 		return objects;
 	}
-	
+
 	@Override
 	public String getLayout() {
 		return layout;
+	}
+
+	@Override
+	public BackgroundObject getItemMenuBackground() {
+		return background_menu;
 	}
 }

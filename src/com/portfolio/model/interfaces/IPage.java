@@ -3,6 +3,7 @@ package com.portfolio.model.interfaces;
 import java.util.List;
 
 import com.portfolio.model.entities.Type;
+import com.portfolio.model.entities.component.BackgroundObject;
 import com.portfolio.model.interfaces.component.IPageObject;
 
 public interface IPage {
@@ -21,6 +22,7 @@ public interface IPage {
 	public static final int type_horizontal_txt_photo_list = 8;
 	public static final int type_curriculum = 9;
 	public static final int type_photo_grid = 10;
+	public static final int type_text_grid = 10;
 	
 
 	public Type getType();
@@ -36,5 +38,7 @@ public interface IPage {
 	public String getContent();
 	
 	public List<IPageObject> getObjects();
+	
+	public BackgroundObject getItemMenuBackground();
 	
 }

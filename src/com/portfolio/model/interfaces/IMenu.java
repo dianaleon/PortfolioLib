@@ -16,4 +16,6 @@ public interface IMenu {
 
 	public BackgroundObject getBackground();
 	
+	public String getItemIcon();
+	
 }

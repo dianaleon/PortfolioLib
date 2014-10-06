@@ -17,5 +17,9 @@ public interface ITheme {
 	public BackgroundObject getMenuBackground();
 
 	public BackgroundObject getMenuItemBackground();
+	
+	public String getHeaderLayout();
+	
+	public String getFooterLayout();
 
 }

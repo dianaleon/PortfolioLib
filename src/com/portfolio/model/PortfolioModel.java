@@ -3,6 +3,7 @@ package com.portfolio.model;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -19,6 +20,7 @@ import com.portfolio.listener.IPortfolioListener;
 import com.portfolio.model.db.dao.MediaDAO;
 import com.portfolio.model.entities.Media;
 import com.portfolio.model.entities.Portfolio;
+import com.portfolio.model.entities.component.BackgroundObject;
 import com.portfolio.model.interfaces.IClient;
 import com.portfolio.model.interfaces.IMenu;
 import com.portfolio.model.interfaces.IPage;
@@ -92,7 +94,21 @@ public class PortfolioModel {
 				positions.add(page.getPosition());				
 			}
 		}
+		Collections.sort(positions);
 		return positions;
+	}
+	
+	public List<BackgroundObject> getPagesItemBackground() {
+		List<BackgroundObject> backgrounds = new ArrayList<BackgroundObject>();
+		if (portfolio != null) {
+			Collection<IPage> pages = portfolio.getPages();
+			Iterator<IPage> itePages = pages.iterator();
+			while (itePages.hasNext()) {
+				IPage page = (IPage) itePages.next();
+				backgrounds.add(page.getItemMenuBackground());				
+			}
+		}
+		return backgrounds;
 	}
 
 	public void getMedia(final IMediaListener callback, final String url) {
@@ -136,10 +152,13 @@ public class PortfolioModel {
 	}
 
 	private void getImageFromFile(IMediaListener callback, String path) {
-		File imgFile = new  File(path);
-		if(imgFile.exists()){
-		    Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-		    callback.onImageReady(myBitmap);
+		if (path == null)
+			return;
+		File imgFile = new File(path);
+		if (imgFile.exists()) {
+			Bitmap myBitmap = BitmapFactory.decodeFile(imgFile
+					.getAbsolutePath());
+			callback.onImageReady(myBitmap);
 		}
 	}
 	
