@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.portfolio.model.interfaces.IClient;
+import com.portfolio.model.interfaces.IGeneralInfo;
 import com.portfolio.model.interfaces.IMenu;
 import com.portfolio.model.interfaces.IPage;
 import com.portfolio.model.interfaces.ITheme;
@@ -17,10 +18,13 @@ public class Portfolio {
 	private IClient client;
 	private ITheme theme;
 	private IMenu menu;
+	private IGeneralInfo generalInfo;
 
 	public Portfolio(final JSONObject JSONPortfolio) {
 		try {
 			client = new Client(JSONPortfolio.getJSONObject("client"));
+			String nombre = (String) JSONPortfolio.get("nameApp");
+			generalInfo = new GeneralInfo(nombre);
 			theme = new Theme(JSONPortfolio.getJSONObject("theme"));
 			JSONObject jsonMenu = JSONPortfolio.getJSONObject("menu");
 			menu = new Menu(jsonMenu);
@@ -92,6 +96,10 @@ public class Portfolio {
 
 	public IClient getClient() {
 		return client;
+	}
+	
+	public IGeneralInfo getGeneralInfo() {
+		return generalInfo;
 	}
 
 	public ITheme getTheme() {

@@ -44,10 +44,17 @@ public class GetPortfolioAsyncTask extends MyAsyncTask {
 	protected void onPreExecute() {
 		super.onPreExecute();
 		// Showing the progress dialog before starting process
-		progress = new ProgressDialog(_context);
-		progress.setMessage("Cargando");
-		progress.setCancelable(false);
-		progress.show();
+		try {
+			progress = new ProgressDialog(_context);
+			progress.setMessage("Cargando");
+			progress.setCancelable(false);
+			progress.show();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
 	}
 	
 	@Override

@@ -25,6 +25,7 @@ import com.portfolio.model.interfaces.IClient;
 import com.portfolio.model.interfaces.IMenu;
 import com.portfolio.model.interfaces.IPage;
 import com.portfolio.model.interfaces.ITheme;
+import com.portfolio.model.interfaces.IGeneralInfo;
 
 public class PortfolioModel {
 
@@ -168,6 +169,10 @@ public class PortfolioModel {
 	
 	public ITheme getTheme() {
 		return this.portfolio.getTheme();
+	}
+	
+	public IGeneralInfo getGeneralInformation() {
+		return this.portfolio.getGeneralInfo();
 	}
 	
 	public IClient getClient() {
