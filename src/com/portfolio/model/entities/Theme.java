@@ -31,6 +31,7 @@ public class Theme implements ITheme {
 					jsonObject.getString("titlebar_background"));
 			this.menuBackground = new BackgroundObject(
 					jsonObject.getString("menu_background"));
+			//COLOR BOTON MENU
 			this.menuItemBackground = new BackgroundObject(
 					jsonObject.getString("menu_item_background"));
 			this.homeBackground = new BackgroundObject(

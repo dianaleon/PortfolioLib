@@ -10,7 +10,7 @@ import com.portfolio.model.interfaces.IType;
 public class Type implements IType {
 
 	private int typeValue;
-	private String type;
+	private String type; 
 	private BackgroundObject background = null;
 	
 	public Type(JSONObject jsonObject) {
@@ -30,7 +30,7 @@ public class Type implements IType {
 	public String getType() {
 		return this.type;
 	}
-	
+ 
 	@Override
 	public BackgroundObject getBackground() {
 		return this.background;

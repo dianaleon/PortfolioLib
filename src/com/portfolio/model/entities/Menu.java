@@ -15,7 +15,7 @@ public class Menu implements IMenu {
 	private String gradient_orientation;
 	private String text_color;
 	private BackgroundObject background;
-	private String itemIcon;
+	//private String itemIcon;
     
 	
 	public Menu(JSONObject jsonObject) {
@@ -26,9 +26,9 @@ public class Menu implements IMenu {
 			this.gradient_orientation = jsonObject.getString("gradient_orientation");
 			this.text_color = jsonObject.getString("text_color");
 			this.background = new BackgroundObject(jsonObject.getString("background"));
-		    if (!jsonObject.isNull("itemIcon")) {
-		    	this.itemIcon = jsonObject.getString("itemIcon");
-			}
+		    //if (!jsonObject.isNull("itemIcon")) {
+		    //	this.itemIcon = jsonObject.getString("itemIcon");
+			//}
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -64,9 +64,10 @@ public class Menu implements IMenu {
 	public BackgroundObject getBackground() {
 		return this.background;
 	}
-
+/*
 	@Override
 	public String getItemIcon() {
 		return this.itemIcon;
 	}
+	*/
 }
