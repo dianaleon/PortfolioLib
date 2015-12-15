@@ -17,6 +17,7 @@ public class Portfolio {
 	private HashMap<Integer, IPage> pages;
 	private IClient client;
 	private ITheme theme;
+	private int tipoAppSeleccionada;
 	private IMenu menu;
 	private IGeneralInfo generalInfo;
 
@@ -101,7 +102,9 @@ public class Portfolio {
 	public IGeneralInfo getGeneralInfo() {
 		return generalInfo;
 	}
-
+	public int getTipoAppSeleccionada() {
+		return tipoAppSeleccionada;
+	}
 	public ITheme getTheme() {
 		return theme;
 	}

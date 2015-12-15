@@ -17,5 +17,6 @@ public class GeneralInfo implements IGeneralInfo {
 		// TODO Auto-generated method stub
 		return this.appName;
 	}
+	
 
 }

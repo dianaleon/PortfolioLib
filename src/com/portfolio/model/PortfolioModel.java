@@ -68,6 +68,7 @@ public class PortfolioModel {
 		return portfolio.getNumberPages();
 	}
 
+
 	public IPage getPageInfo(int numberPage) {
 		return portfolio.getPage(numberPage);
 	}
@@ -178,4 +179,6 @@ public class PortfolioModel {
 	public IClient getClient() {
 		return this.portfolio.getClient();		
 	}
+	
+	
 }
