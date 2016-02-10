@@ -10,6 +10,8 @@ public interface ITheme {
 	
 	public String getHomeImage();
 	
+	public String getHomeImageClear();
+	
 	public BackgroundObject getBackground();
 	
 	public BackgroundObject getTitleBarBackground();

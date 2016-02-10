@@ -73,7 +73,9 @@ public class Portfolio {
 				if (layout.equalsIgnoreCase("catalogo")) {
 					pageObject = new CatalogoPage(type, page, layout);
 				}
-
+				if (layout.equalsIgnoreCase("catalogo2")) {
+					pageObject = new CatalogoPage(type, page, layout);
+				}
 				if (layout.equalsIgnoreCase("text_text_gridlist")) {
 					pageObject = new PhotoTxtGridListPage(type, page, layout);
 				}

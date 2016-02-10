@@ -16,6 +16,7 @@ public class Theme implements ITheme {
 	private BackgroundObject menuItemBackground;
 	private BackgroundObject homeBackground;
 	private String homeImage;
+	private String homeImageClear;
 	private String colors;
 	private String headerLayout;
 	private String footerLayout;
@@ -25,6 +26,7 @@ public class Theme implements ITheme {
 			this.code = jsonObject.getString("code");
 			this.urlImages = jsonObject.getString("url_images");
 			this.homeImage = jsonObject.getString("home_img");
+			this.homeImageClear = jsonObject.getString("home_img_clear");
 			this.background = new BackgroundObject(
 					jsonObject.getString("background"));
 			this.titleBarBackground = new BackgroundObject(
@@ -89,6 +91,10 @@ public class Theme implements ITheme {
 	@Override
 	public String getHomeImage() {
 		return homeImage;
+	}
+	@Override
+	public String getHomeImageClear() {
+		return homeImageClear;
 	}
 
 	@Override
